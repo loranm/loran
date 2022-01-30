@@ -1,9 +1,37 @@
-<div style="text-align: center">
-  <h1>Welcome to demo!</h1>
-  <img
-    width="450"
-    src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png"
-    alt="Nx - Smart, Fast and Extensible Build System"
-  />
-</div>
-<div>Message: {{ hello$ | async | json }}</div>
+<tui-root>
+  <button tuiButton type="button" class="tui-space_right-3 tui-space_bottom-3">
+    Button
+  </button>
+
+  <button
+    tuiButton
+    type="button"
+    iconRight="tuiIconSearch"
+    class="tui-space_right-3 tui-space_bottom-3"
+    [disabled]="true"
+  >
+    Disabled button
+  </button>
+
+  <div>Message: {{ hello$ | async | json }}</div>
+  <!-- content of your app -->
+
+  <!--
+   If you need, you can add something between Taiga portal layers:
+  -->
+  <ng-container ngProjectAs="tuiOverContent">
+    <!-- Content over app content -->
+  </ng-container>
+  <ng-container ngProjectAs="tuiOverDialogs">
+    <!-- Content over dialogs -->
+  </ng-container>
+  <ng-container ngProjectAs="tuiOverNotifications">
+    <!-- Content over notifications -->
+  </ng-container>
+  <ng-container ngProjectAs="tuiOverPortals">
+    <!-- Content over dropdowns -->
+  </ng-container>
+  <ng-container ngProjectAs="tuiOverHints">
+    <!-- Content over hints -->
+  </ng-container>
+</tui-root>
