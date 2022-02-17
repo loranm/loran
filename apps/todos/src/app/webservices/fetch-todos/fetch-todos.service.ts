@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable, timer } from 'rxjs';
-import { TODOS } from '../../mocks/todos';
-import { Todo } from '../../models/todo';
+import { Todo } from '@loran/api-interfaces';
+import { Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -12,12 +11,12 @@ export class FetchTodosService {
   constructor(private readonly http: HttpClient) {}
 
   getTodos(): Observable<Todo[]> {
-    // return this.http.get<Todo[]>(this.endPoint);
-    return timer(3000).pipe(map(() => TODOS));
+    return this.http
+      .get<Todo[]>(this.endPoint)
+      .pipe(tap((value) => console.log(value)));
   }
 
-  postTodo(todo: Todo): Observable<Todo[]> {
-    // return this.http.post<Todo>(this.endPoint, todo);
-    return timer(1000).pipe(map(() => [...TODOS, todo]));
+  postTodo(todo: Todo) {
+    return this.http.post<Todo[]>('/api/addTodo', todo);
   }
 }
