@@ -1,1 +1,7 @@
-<loran-nx-welcome></loran-nx-welcome> <router-outlet></router-outlet>
+<ul>
+  <li *ngFor="let todo of todos$ | async" class="todo">
+    {{ todo.title }}
+  </li>
+</ul>
+
+<button id="add-todo" (click)="addTodo()">Add todo</button>
