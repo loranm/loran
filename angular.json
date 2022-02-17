@@ -4,6 +4,8 @@
     "api": "apps/api",
     "api-interfaces": "libs/api-interfaces",
     "demo": "apps/demo",
-    "demo-e2e": "apps/demo-e2e"
+    "demo-e2e": "apps/demo-e2e",
+    "todos": "apps/todos",
+    "todos-e2e": "apps/todos-e2e"
   }
 }
